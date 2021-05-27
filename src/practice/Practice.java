@@ -1,5 +1,6 @@
 package practice;
 
+import java.io.BufferedOutputStream;
 import java.io.IOException;
 
 public class Practice {
@@ -16,9 +17,13 @@ public class Practice {
         System.err.println("ERROR"); //error*/
 
         Writer w = new Writer();
-        w.writeMultipleChars();
         Reader r = new Reader();
-        r.readMultipleChars();
+        /*w.writeMultipleChars();
+        r.readMultipleChars();*/
+
+        w.bufferWriter();
+        r.readMultipleCharsWithBuffer();
+
 
     }
 

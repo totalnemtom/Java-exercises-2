@@ -1,7 +1,9 @@
 package practice;
 
+import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class Writer {
@@ -23,7 +25,7 @@ public class Writer {
     public void writeMultipleChars(){
         try {
             FileOutputStream fos = new FileOutputStream("C://Users//KomPhone//Desktop//text.txt");
-            String text = "Something to write";
+            String text = "Something to write with buffer";
             byte a[] = text.getBytes(StandardCharsets.UTF_8);
             fos.write(a);
             fos.flush();
@@ -32,6 +34,17 @@ public class Writer {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void bufferWriter() throws IOException {
+        FileOutputStream fos = new FileOutputStream("C://Users//KomPhone//Desktop//text.txt");
+        BufferedOutputStream bos = new BufferedOutputStream(fos);
+        String text = "Something to write with buffer";
+        byte a[] = text.getBytes(StandardCharsets.UTF_8);
+        bos.write(a);
+        bos.flush();
+        bos.close();
+        System.out.println("DONE");
     }
 }
 

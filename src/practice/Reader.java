@@ -1,5 +1,6 @@
 package practice;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -23,6 +24,24 @@ public class Reader {
             String result = "";
 
             while ((i= fis.read())!=-1) {
+                result += (char) i;
+            }
+
+            System.out.println("DONE READ: " + result);
+            fis.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void readMultipleCharsWithBuffer(){
+        try {
+            FileInputStream fis = new FileInputStream("C://Users//KomPhone//Desktop//text.txt");
+            BufferedInputStream bin = new BufferedInputStream(fis);
+            int i = 0;
+            String result = "";
+
+            while ((i= bin.read())!=-1) {
                 result += (char) i;
             }
 
